@@ -112,9 +112,48 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
-function articleMaker(dataObj) {
-  const article = article.createElement('div')
-  const articleTitle = articleTitle.createElement('h2')
-  const articleParagraph = articleParagraph.createElement('p')
-  const articleSpan = articleSpan.createElement('span')
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(articleDataObj) {
+  const article = document.createElement('div')
+  const articleTitle = document.createElement('h2')
+  const articleDate = document.createElement('p')
+  const articleParagraph = document.createElement('p')
+  const articleParagraph2 = document.createElement('p')
+  const articleParagraph3 = document.createElement('p')
+  const articleSpan = document.createElement('span')
+
+  // Structure for elements
+  article.appendChild(articleTitle)
+  article.appendChild(articleDate)
+  article.appendChild(articleParagraph)
+  article.appendChild(articleParagraph2)
+  article.appendChild(articleParagraph3)
+  article.appendChild(articleParagraph)
+  article.appendChild(articleSpan)
+
+  // Adding class list
+  article.classList.add('article')
+  articleParagraph.classList.add('date')
+  articleSpan.classList.add('expandButton')
+
+
+  // The Textcontent
+  articleTitle.textContent = articleDataObj.title
+  articleParagraph.textContent = articleDataObj.date
+  articleParagraph2.textContent = articleDataObj.firstParagraph
+  articleParagraph3.textContent = articleDataObj.secondParagraph
+  articleSpan.textContent = articleDataObj.thirdParagraph
+
+
+  // Event listener
+  articleSpan.addEventListener('click', event => {
+    article.classList.toggle('article-open')
+  })
+  return article
 }
+
+data.forEach( articleDataObj => {
+  articles.append(articleMaker(articleDataObj))
+})
