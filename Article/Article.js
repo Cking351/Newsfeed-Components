@@ -130,21 +130,21 @@ function articleMaker(articleDataObj) {
   article.appendChild(articleParagraph)
   article.appendChild(articleParagraph2)
   article.appendChild(articleParagraph3)
-  article.appendChild(articleParagraph)
   article.appendChild(articleSpan)
 
   // Adding class list
   article.classList.add('article')
-  articleParagraph.classList.add('date')
+  articleDate.classList.add('date')
   articleSpan.classList.add('expandButton')
 
 
   // The Textcontent
   articleTitle.textContent = articleDataObj.title
-  articleParagraph.textContent = articleDataObj.date
-  articleParagraph2.textContent = articleDataObj.firstParagraph
-  articleParagraph3.textContent = articleDataObj.secondParagraph
-  articleSpan.textContent = articleDataObj.thirdParagraph
+  articleDate.textContent = articleDataObj.date
+  articleParagraph.textContent = articleDataObj.firstParagraph
+  articleParagraph2.textContent = articleDataObj.secondParagraph
+  articleParagraph3.textContent = articleDataObj.thirdParagraph
+  articleSpan.textContent = 'Click here to expand'
 
 
   // Event listener
