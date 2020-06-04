@@ -36,25 +36,36 @@ const heading = document.querySelector('.menu-button')
 
 function menuMaker(array) {
   
+  // Created variables for HTML structure
   const mainDiv = document.createElement('div')
   const menuUl = document.createElement('ul')
 
+
+  // Attached the ul to the div
   mainDiv.appendChild(menuUl)
   
+  // Gave the div the class of 'menu'
   mainDiv.classList.add('menu')
 
-  array.forEach(txtContent => {
-    const li = document.createElement('li')
-    li.textContent = txtContent
-    menuUl.appendChild(li)
+
+  // A loop that adds the array elements into a li and appends them to the ul
+  array.forEach(element => {
+    const menuLi = document.createElement('li')
+    menuLi.textContent = element
+    menuUl.appendChild(menuLi)
   })
 
+  // Added click with anon function that toggles the menu--open class everytime the event occurs
   heading.addEventListener ('click', () => {
     mainDiv.classList.toggle('menu--open')
   })
 return mainDiv
 }
+
+// Creating a variable that stores the function with our targeted array
 const createMenu = menuMaker(menuItems)
+
+// Appending the new variable to the body of the page so it can be seen
 document.body.appendChild(createMenu)
 
 
