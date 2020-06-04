@@ -55,8 +55,8 @@ function menuMaker(array) {
     menuUl.appendChild(menuLi)
   })
 
-  // Added click with anon function that toggles the menu--open class everytime the event occurs
-  heading.addEventListener ('click', () => {
+  // Added click with a function that toggles the menu--open class everytime the event occurs
+  heading.addEventListener ('click', (event) => {
     mainDiv.classList.toggle('menu--open')
   })
 return mainDiv
