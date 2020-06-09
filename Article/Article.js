@@ -90,6 +90,7 @@ const data = [
 
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
 
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -111,3 +112,48 @@ const data = [
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 */
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(articleDataObj) {
+  const article = document.createElement('div')
+  const articleTitle = document.createElement('h2')
+  const articleDate = document.createElement('p')
+  const articleParagraph = document.createElement('p')
+  const articleParagraph2 = document.createElement('p')
+  const articleParagraph3 = document.createElement('p')
+  const articleSpan = document.createElement('span')
+
+  // Structure for elements
+  article.appendChild(articleTitle)
+  article.appendChild(articleDate)
+  article.appendChild(articleParagraph)
+  article.appendChild(articleParagraph2)
+  article.appendChild(articleParagraph3)
+  article.appendChild(articleSpan)
+
+  // Adding class list
+  article.classList.add('article')
+  articleDate.classList.add('date')
+  articleSpan.classList.add('expandButton')
+
+
+  // The Textcontent
+  articleTitle.textContent = articleDataObj.title
+  articleDate.textContent = articleDataObj.date
+  articleParagraph.textContent = articleDataObj.firstParagraph
+  articleParagraph2.textContent = articleDataObj.secondParagraph
+  articleParagraph3.textContent = articleDataObj.thirdParagraph
+  articleSpan.textContent = 'Click here to expand'
+
+
+  // Event listener
+  articleSpan.addEventListener('click', event => {
+    article.classList.toggle('article-open')
+  })
+  return article
+}
+
+data.forEach( articleDataObj => {
+  articles.append(articleMaker(articleDataObj))
+})
